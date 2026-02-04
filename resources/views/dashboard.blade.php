@@ -107,7 +107,7 @@
                                 <label for="technos" class="block text-sm font-medium text-gray-900">Technos</label>
                                 <input type="text" name="technos" id="technos" value="{{ request('technos') }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
-                            <div>
+                            <div class="relative">
                                 <label for="entreprise" class="block text-sm font-medium text-gray-900">Entreprise</label>
                                 <input type="text" name="entreprise" id="entreprise" value="{{ request('entreprise') }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
@@ -146,7 +146,7 @@
                     <div class="text-xs text-gray-500">{{ $alternance->entreprise->domaine }}</div>
                 </td>
                 <td class="px-6 py-4">
-                    <span class="px-2 py-1 text-xs font-semibold rounded-full {{ $alternance->type == 'Alternance' ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800' }}">
+                    <span class="px-2 py-1 text-xs font-semibold rounded-full {{ strtolower($alternance->type) == 'alternance' ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800' }}">
                         {{ $alternance->type }}
                     </span>
                     <div class="text-xs text-gray-500 mt-1">{{ $alternance->mois_annee }} ({{ $alternance->duree }} mois)</div>

@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $query = Alternance::with('entreprise');
 
         if ($request->filled('type')) {
-            $query->where('type', $request->type);
+            $query->whereRaw('LOWER(type) = ?', [strtolower($request->type)]);
         }
 
         if ($request->filled('technos')) {
@@ -61,5 +61,15 @@ class DashboardController extends Controller
         }
 
         return redirect()->route('dashboard')->with('success', 'Importation des alternances réussie.');
+    }
+
+    public function searchEntreprises(Request $request)
+    {
+        $search = $request->get('search');
+        $entreprises = Entreprise::where('nom', 'like', '%' . $search . '%')
+            ->limit(10)
+            ->get(['id', 'nom']);
+
+        return response()->json($entreprises);
     }
 }

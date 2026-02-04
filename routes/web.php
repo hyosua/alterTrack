@@ -22,6 +22,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route for Excel import
     Route::post('/import/entreprises', [DashboardController::class, 'importEntreprises'])->name('import.entreprises');
     Route::post('/import/alternances', [DashboardController::class, 'importAlternances'])->name('import.alternances');
+
+    // Route for company search autocomplete
+    Route::get('/search-entreprises', [DashboardController::class, 'searchEntreprises'])->name('search.entreprises');
 });
 
 

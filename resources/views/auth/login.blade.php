@@ -1,7 +1,4 @@
 <x-guest-layout>
-    <div class="text-center mb-4">
-        <h1 class="text-3xl font-bold text-gray-800">AlterTrack</h1>
-    </div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

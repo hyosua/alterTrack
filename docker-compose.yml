@@ -15,4 +15,4 @@ services:
       - ./database/database.sqlite:/var/www/database/database.sqlite
     ports:
       - "8000:8000"
-    command: php artisan serve --host=0.0.0.0 --port=8000
+    command: sh -c "echo 'Website accessible at http://localhost:8000' && php artisan serve --host=0.0.0.0 --port=8000"
