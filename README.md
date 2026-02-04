@@ -6,12 +6,9 @@ Bonjour, ce guide rapide vous explique comment lancer et tester l'application de
 
 Pour tester rapidement l'application, des fichiers de données sont fournis dans le dossier `/lib`.
 
-*   `lib/donnees-test-entreprises.csv`
-*   `lib/donnees-test-alternances.csv`
+*   `lib/donnees-test-entreprises.xslx`
+*   `lib/donnees-test-alternances.xslx`
 
-**Action requise :** L'application importe les fichiers au format **Excel (`.xlsx`)**. Vous devez donc ouvrir chaque fichier `.csv` avec un tableur (Excel, LibreOffice) et l'enregistrer au format `.xlsx`.
-
-Une fois les fichiers convertis, vous pourrez les importer depuis le tableau de bord de l'application pour peupler la base de données.
 
 ## 2. Installation du Projet
 
@@ -46,4 +43,4 @@ php artisan serve
 
 L'application sera accessible à l'adresse `http://127.0.0.1:8000`.
 
-Vous pouvez ensuite vous créer un compte pour accéder au tableau de bord et tester les fonctionnalités d'import et de filtrage.
+Vous pouvez ensuite vous **créer un compte** pour accéder au tableau de bord et tester les fonctionnalités d'**import et de filtrage**.
