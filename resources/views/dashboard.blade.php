@@ -42,14 +42,14 @@
                                 <!-- Import Entreprises -->
                                 <div class="bg-gray-50 p-4 rounded-lg border">
                                     <h4 class="text-lg font-semibold text-gray-900 mb-2">Importer des entreprises</h4>
-                                    <form action="{{ route('import.entreprises') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('import.entreprises') }}" method="POST" enctype="multipart/form-data" x-data="{ fileSelected: false }">
                                         @csrf
                                         <div class="flex space-x-4 items-end">
                                             <div>
                                                 <label for="file-entreprises" class="block text-sm font-medium text-gray-700">Fichier Excel</label>
-                                                <input type="file" name="file" id="file-entreprises" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required/>
+                                                <input type="file" name="file" id="file-entreprises" @change="fileSelected = $event.target.value.length > 0" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required/>
                                             </div>
-                                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <button type="submit" :class="{ 'opacity-50 cursor-not-allowed': !fileSelected }" :disabled="!fileSelected" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 Importer
                                             </button>
                                         </div>
@@ -59,14 +59,14 @@
                                 <!-- Import Alternances -->
                                 <div class="bg-gray-50 p-4 rounded-lg border">
                                     <h4 class="text-lg font-semibold text-gray-900 mb-2">Importer des alternances</h4>
-                                    <form action="{{ route('import.alternances') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('import.alternances') }}" method="POST" enctype="multipart/form-data" x-data="{ fileSelected: false }">
                                         @csrf
                                         <div class="flex space-x-4 items-end">
                                             <div>
                                                 <label for="file-alternances" class="block text-sm font-medium text-gray-700">Fichier Excel</label>
-                                                <input type="file" name="file" id="file-alternances" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100" required/>
+                                                <input type="file" name="file" id="file-alternances" @change="fileSelected = $event.target.value.length > 0" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100" required/>
                                             </div>
-                                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                            <button type="submit" :class="{ 'opacity-50 cursor-not-allowed': !fileSelected }" :disabled="!fileSelected" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                                                 Importer
                                             </button>
                                         </div>
@@ -195,7 +195,8 @@
                     {{ $alternance->prof_referent }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <form action="{{ route('alternances.destroy', $alternance) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette alternance ?');">
+                    <a href="{{ route('alternances.edit', $alternance) }}" class="text-indigo-600 hover:text-indigo-900 mr-4">Modifier</a>
+                    <form action="{{ route('alternances.destroy', $alternance) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette alternance ?');" class="inline-block">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-600 hover:text-red-900">Supprimer</button>

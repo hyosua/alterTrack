@@ -35,6 +35,10 @@ Assurez-vous d'avoir PHP, Composer, et Node.js installés sur votre machine.
 
 ## 3. Lancement de l'Application
 
+Vous avez deux options pour lancer l'application :
+
+### Option 1: Avec le serveur de développement PHP (requiert PHP local)
+
 Pour démarrer le serveur de développement local :
 
 ```bash
@@ -42,6 +46,21 @@ php artisan serve
 ```
 
 L'application sera accessible à l'adresse `http://127.0.0.1:8000`.
+
+### Option 2: Avec Docker Compose 
+
+Pour lancer l'application via Docker Compose (assurez-vous d'avoir Docker installé et démarré) :
+
+1.  **Démarrer les conteneurs :**
+    ```bash
+    docker compose up -d
+    ```
+    L'application sera accessible à l'adresse `http://localhost:8000`. L'URL sera affichée dans votre console lors du démarrage.
+
+2.  **Arrêter les conteneurs :**
+    ```bash
+    docker compose down
+    ```
 
 Vous pouvez ensuite vous **créer un compte** pour accéder au tableau de bord et tester les fonctionnalités d'**import et de filtrage**.
 

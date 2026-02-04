@@ -50,4 +50,36 @@ class AlternanceController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Alternance supprimée avec succès.');
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Alternance $alternance)
+    {
+        $entreprises = Entreprise::orderBy('nom')->get();
+        return view('alternances.edit', compact('alternance', 'entreprises'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Alternance $alternance)
+    {
+        $request->validate([
+            'entreprise_id' => 'required|exists:entreprises,id',
+            'nom_etudiant' => 'required|string|max:255',
+            'prenom_etudiant' => 'required|string|max:255',
+            'type' => 'required|string|in:stage,alternance',
+            'mois_annee' => 'required|string|max:255',
+            'duree' => 'required|string|max:255',
+            'descriptif' => 'required|string',
+            'prof_referent' => 'required|string|max:255',
+            'qualite_travail' => 'required|string|max:255',
+            'technos' => 'required|string|max:255',
+        ]);
+
+        $alternance->update($request->all());
+
+        return redirect()->route('dashboard')->with('success', 'Alternance mise à jour avec succès.');
+    }
 }

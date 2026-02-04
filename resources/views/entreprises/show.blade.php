@@ -51,6 +51,7 @@
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Technologies</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Qualité du Travail</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Prof Référent</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -82,10 +83,13 @@
                                         <td class="px-6 py-4 text-sm text-gray-600">
                                             {{ $alternance->prof_referent }}
                                         </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <a href="{{ route('alternances.edit', $alternance) }}" class="text-indigo-600 hover:text-indigo-900">Modifier</a>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Aucune alternance trouvée pour cette entreprise.</td>
+                                        <td colspan="6" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Aucune alternance trouvée pour cette entreprise.</td>
                                     </tr>
                                 @endforelse
                             </tbody>

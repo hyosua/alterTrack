@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libsqlite3-dev \
+    libjpeg-dev \
+    libzip-dev \
     zip \
     unzip
 
@@ -15,4 +17,4 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Installation des extensions PHP (On ajoute pdo_sqlite et sqlite3)
-RUN docker-php-ext-install pdo_sqlite bcmath gd mbstring pcntl exif
+RUN docker-php-ext-install pdo_sqlite bcmath gd mbstring pcntl exif zip

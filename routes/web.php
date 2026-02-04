@@ -16,6 +16,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Routes for manual creation
     Route::get('/alternances/create', [AlternanceController::class, 'create'])->name('alternances.create');
     Route::post('/alternances', [AlternanceController::class, 'store'])->name('alternances.store');
+    Route::get('/alternances/{alternance}/edit', [AlternanceController::class, 'edit'])->name('alternances.edit');
+    Route::put('/alternances/{alternance}', [AlternanceController::class, 'update'])->name('alternances.update');
     Route::delete('/alternances/{alternance}', [AlternanceController::class, 'destroy'])->name('alternances.destroy');
     Route::resource('entreprises', EntrepriseController::class);
 
