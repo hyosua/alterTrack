@@ -72,4 +72,15 @@ class DashboardController extends Controller
 
         return response()->json($entreprises);
     }
+
+    public function getUniqueTechnos()
+    {
+        $technos = Alternance::pluck('technos')->map(function ($item) {
+            return explode(',', $item);
+        })->flatten()->map(function ($item) {
+            return trim($item);
+        })->unique()->values()->all();
+
+        return response()->json($technos);
+    }
 }

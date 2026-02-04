@@ -105,11 +105,37 @@
                             </div>
                             <div>
                                 <label for="technos" class="block text-sm font-medium text-gray-900">Technos</label>
-                                <input type="text" name="technos" id="technos" value="{{ request('technos') }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <div x-data="searchableSelect('{{ route('get.unique.technos') }}', '{{ request('technos') }}', '{{ request('technos') }}')" @click.outside="handleBlur()" class="relative mt-1">
+                                    <input type="text" x-model="searchTerm" @focus="open = true" @input="filterOptions()" @keydown.escape="open = false"
+                                           class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                           placeholder="Rechercher...">
+                                    <input type="hidden" name="technos" x-ref="hiddenInput" :value="selectedValue">
+                                    <div x-show="open && filteredOptions.length > 0" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md ring-1 ring-black ring-opacity-5 overflow-auto">
+                                        <ul class="py-1 text-base ring-1 ring-gray-200 rounded-md focus:outline-none sm:text-sm">
+                                            <template x-for="option in filteredOptions" :key="option.value">
+                                                <li @click="selectOption(option)" x-text="option.text"
+                                                    class="cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white"></li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="relative">
+                            <div>
                                 <label for="entreprise" class="block text-sm font-medium text-gray-900">Entreprise</label>
-                                <input type="text" name="entreprise" id="entreprise" value="{{ request('entreprise') }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                <div x-data="searchableSelect('{{ route('search.entreprises') }}', '{{ request('entreprise') }}', '{{ request('entreprise') }}')" @click.outside="handleBlur()" class="relative mt-1">
+                                    <input type="text" x-model="searchTerm" @focus="open = true" @input="filterOptions()" @keydown.escape="open = false"
+                                           class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                           placeholder="Rechercher...">
+                                    <input type="hidden" name="entreprise" x-ref="hiddenInput" :value="selectedValue">
+                                    <div x-show="open && filteredOptions.length > 0" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md ring-1 ring-black ring-opacity-5 overflow-auto">
+                                        <ul class="py-1 text-base ring-1 ring-gray-200 rounded-md focus:outline-none sm:text-sm">
+                                            <template x-for="option in filteredOptions" :key="option.value">
+                                                <li @click="selectOption(option)" x-text="option.text"
+                                                    class="cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white"></li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <button type="submit" class="mt-7 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

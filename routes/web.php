@@ -25,6 +25,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route for company search autocomplete
     Route::get('/search-entreprises', [DashboardController::class, 'searchEntreprises'])->name('search.entreprises');
+
+    // Route for unique technos
+    Route::get('/get-unique-technos', [DashboardController::class, 'getUniqueTechnos'])->name('get.unique.technos');
 });
 
 

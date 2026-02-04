@@ -44,3 +44,21 @@ php artisan serve
 L'application sera accessible à l'adresse `http://127.0.0.1:8000`.
 
 Vous pouvez ensuite vous **créer un compte** pour accéder au tableau de bord et tester les fonctionnalités d'**import et de filtrage**.
+
+## 4. Nouveautés de la Version 2
+
+Cette mise à jour apporte des améliorations significatives à l'expérience utilisateur et à la fonctionnalité de l'application :
+
+### 4.1 Personnalisation de l'Interface
+
+*   **Page d'authentification :** La page de connexion a été personnalisée pour mieux correspondre à l'identité visuelle du projet "AlterTrack", avec un logo textuel et un style épuré.
+*   **Page d'accueil (`/`) :** Entièrement repensée pour une présentation plus moderne. Elle affiche désormais un titre "AlterTrack" proéminent, un message de bienvenue, une image "Hero" stylisée et des boutons d'action clairs pour la connexion et l'inscription. Pour les utilisateurs déjà connectés, un lien direct vers le tableau de bord est accessible.
+
+### 4.2 Améliorations des Filtres du Tableau de Bord
+
+*   **Filtre par Type (Stage/Alternance) :** Le filtre a été renforcé pour être insensible à la casse, permettant de trouver les "Alternance" ou "Stage" quelle que soit leur écriture en base de données.
+*   **Champs "Entreprise" et "Technos" :** Les champs de filtre sont désormais des "selects" interactifs avec fonction de recherche (autocomplétion). Cela permet une sélection plus rapide et plus précise des entreprises et des technologies disponibles.
+
+### 4.3 Amélioration du Lancement Docker
+
+*   Lors de l'utilisation de `docker compose up`, l'URL d'accès à l'application (`http://localhost:8000`) est maintenant affichée directement dans la console pour faciliter l'accès.

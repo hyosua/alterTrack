@@ -7,59 +7,119 @@ window.Alpine = Alpine;
 Alpine.start();
 
 document.addEventListener('DOMContentLoaded', function () {
-    const entrepriseInput = document.getElementById('entreprise');
-
-    if (entrepriseInput) {
-        let currentTimeout = null;
-        let suggestionsContainer = document.createElement('div');
-        suggestionsContainer.className = 'absolute z-10 bg-white border border-gray-300 rounded-md shadow-lg mt-1 w-full max-h-60 overflow-auto';
-        suggestionsContainer.style.display = 'none';
-        entrepriseInput.parentNode.insertBefore(suggestionsContainer, entrepriseInput.nextSibling);
-
-        entrepriseInput.addEventListener('input', function () {
-            if (currentTimeout) {
-                clearTimeout(currentTimeout);
-            }
-
-            const query = entrepriseInput.value;
-
-            if (query.length > 2) { // Only search if more than 2 characters
-                currentTimeout = setTimeout(() => {
-                    fetch(`/search-entreprises?search=${query}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            suggestionsContainer.innerHTML = ''; // Clear previous suggestions
-                            if (data.length > 0) {
-                                data.forEach(entreprise => {
-                                    let suggestionItem = document.createElement('div');
-                                    suggestionItem.className = 'px-4 py-2 cursor-pointer hover:bg-gray-100';
-                                    suggestionItem.textContent = entreprise.nom;
-                                    suggestionItem.addEventListener('click', function () {
-                                        entrepriseInput.value = entreprise.nom;
-                                        suggestionsContainer.style.display = 'none';
-                                    });
-                                    suggestionsContainer.appendChild(suggestionItem);
-                                });
-                                suggestionsContainer.style.display = 'block';
-                            } else {
-                                suggestionsContainer.style.display = 'none';
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error fetching company suggestions:', error);
-                            suggestionsContainer.style.display = 'none';
-                        });
-                }, 300); // Debounce time
-            } else {
-                suggestionsContainer.style.display = 'none';
-            }
-        });
-
-        // Hide suggestions when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!entrepriseInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
-                suggestionsContainer.style.display = 'none';
-            }
-        });
-    }
+    // Existing autocomplete logic for 'entreprise' removed here
+    // as it will be replaced by a generic Alpine.js searchable select component.
 });
+
+Alpine.data('searchableSelect', (optionsUrl, initialValue = '', initialText = '') => ({
+    open: false,
+    searchTerm: initialText,
+    selectedValue: initialValue,
+    selectedText: initialText,
+    options: [],
+    filteredOptions: [],
+    isLoading: false,
+    currentTimeout: null,
+
+    init() {
+        this.fetchOptions(this.searchTerm);
+        this.$watch('searchTerm', (value) => this.debouncedFetchOptions(value));
+        if (this.selectedValue) {
+            this.selectedText = this.searchTerm;
+        }
+    },
+
+    debouncedFetchOptions(value) {
+        if (this.currentTimeout) {
+            clearTimeout(this.currentTimeout);
+        }
+        this.currentTimeout = setTimeout(() => {
+            this.fetchOptions(value);
+        }, 300); // Debounce time
+    },
+
+    fetchOptions(query) {
+        this.isLoading = true;
+        this.options = []; // Clear previous options before fetching new ones
+
+        // If no query and not pre-selecting an initial value, fetch all or a default set
+        const url = query ? `${optionsUrl}?search=${query}` : optionsUrl;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (optionsUrl.includes('search-entreprises')) {
+                    this.options = data.map(item => ({ value: item.nom, text: item.nom }));
+                } else if (optionsUrl.includes('get-unique-technos')) {
+                    this.options = data.map(item => ({ value: item, text: item }));
+                } else {
+                    this.options = data; // Assume data is already in {value, text} format
+                }
+                this.filterOptions(); // Filter based on current search term
+                this.isLoading = false;
+            })
+            .catch(error => {
+                console.error('Error fetching options:', error);
+                this.isLoading = false;
+            });
+    },
+
+    filterOptions() {
+        if (!this.searchTerm) {
+            this.filteredOptions = this.options;
+            return;
+        }
+        this.filteredOptions = this.options.filter(option =>
+            option.text.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+    },
+
+    selectOption(option) {
+        this.selectedValue = option.value;
+        this.selectedText = option.text;
+        this.searchTerm = option.text; // Update search term to selected text
+        this.open = false;
+        // Dispatch an input event on the hidden input so form submission works
+        this.$refs.hiddenInput.dispatchEvent(new Event('input'));
+    },
+
+    toggleOpen() {
+        this.open = !this.open;
+        if (this.open) {
+            // When opening, reset searchTerm to selectedText to allow re-filtering
+            this.searchTerm = this.selectedText;
+            this.$nextTick(() => this.$refs.searchInput.focus());
+        } else {
+            // When closing, if nothing selected, reset searchTerm and selectedText
+            if (!this.selectedValue) {
+                this.searchTerm = '';
+                this.selectedText = '';
+            } else {
+                // If a value is selected, ensure search term matches selected text
+                this.searchTerm = this.selectedText;
+            }
+        }
+        this.filterOptions();
+    },
+
+    clearSelection() {
+        this.selectedValue = '';
+        this.selectedText = '';
+        this.searchTerm = '';
+        this.open = false;
+        this.fetchOptions(''); // Fetch all options again
+        this.$refs.hiddenInput.dispatchEvent(new Event('input'));
+    },
+
+    handleBlur() {
+        // Delay closing to allow click event on options to register
+        setTimeout(() => {
+            if (!this.filteredOptions.some(option => option.value === this.selectedValue)) {
+                // If the selected value is not in the filtered options (e.g., user typed something and blurred without selecting)
+                // Revert search term to selected text or clear if no selection
+                this.searchTerm = this.selectedText;
+            }
+            this.open = false;
+        }, 100);
+    }
+}));
