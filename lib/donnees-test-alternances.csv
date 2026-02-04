@@ -1,0 +1,4 @@
+nom_entreprise,domaine,code_postal,contact,email,tel,siteweb,nom_etudiant,prenom_etudiant,type,mois_annee,duree,descriptif,prof_referent,qualite_travail,technos
+"Tech Innovations","Software","75001","Jean Dupont","contact@tech-innovations.com","0123456789","www.tech-innovations.com","Leclerc","Charles","Alternance","09/2024","12","Développement d'une nouvelle feature","M. Martin","Excellent travail, très autonome.","PHP,Laravel,Vue.js"
+"Data Solutions","Big Data","69002","Marie Durand","contact@data-solutions.fr","0987654321","www.data-solutions.fr","Gasly","Pierre","Stage","06/2024","6","Analyse de données client","Mme. Dubois","Bonne progression, curieux.","Python,Pandas,SQL"
+"Future Corp","AI","31000","Alain Bernard","contact@future-corp.tech","0504030201","www.future-corp.tech","Ocon","Esteban","Alternance","09/2024","24","Mise en place d'un chatbot","M. Garcia","Très impliqué et force de proposition.","Python,TensorFlow,Dialogflow"
