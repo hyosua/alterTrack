@@ -22,34 +22,34 @@
             <div class="flex items-center justify-between h-16">
                 {{-- Logo --}}
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <div class="w-8 h-8 bg-violet-600 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                         </svg>
                     </div>
-                    <span class="text-lg font-bold text-indigo-700">AlterTrack</span>
+                    <span class="text-lg font-bold text-violet-700">AlterTrack</span>
                 </div>
 
                 {{-- Desktop links --}}
                 <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                    <a href="#fonctionnalites" class="hover:text-indigo-600 transition">Fonctionnalités</a>
-                    <a href="#comment" class="hover:text-indigo-600 transition">Comment ça marche</a>
-                    <a href="#faq" class="hover:text-indigo-600 transition">FAQ</a>
+                    <a href="#fonctionnalites" class="hover:text-violet-600 transition">Fonctionnalités</a>
+                    <a href="#comment" class="hover:text-violet-600 transition">Comment ça marche</a>
+                    <a href="#faq" class="hover:text-violet-600 transition">FAQ</a>
                 </div>
 
                 {{-- Desktop CTAs --}}
                 <div class="hidden md:flex items-center gap-3">
                     @auth
                         <a href="{{ url('/dashboard') }}"
-                            class="px-4 py-2 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition">Tableau
+                            class="px-4 py-2 text-sm font-medium text-violet-600 hover:text-violet-800 transition">Tableau
                             de bord</a>
                     @else
                         <a href="{{ route('login') }}"
-                            class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Se
+                            class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-violet-600 transition">Se
                             connecter</a>
                         <a href="{{ route('register') }}"
-                            class="px-5 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition shadow-sm">Commencer
+                            class="px-5 py-2 text-sm font-semibold text-white bg-violet-600 rounded-lg hover:bg-violet-700 transition shadow-sm">Commencer
                             gratuitement</a>
                     @endauth
                 </div>
@@ -72,22 +72,22 @@
         {{-- Mobile menu --}}
         <div x-show="open" x-transition class="md:hidden border-t border-gray-100 bg-white px-4 py-4 space-y-3">
             <a href="#fonctionnalites" @click="open=false"
-                class="block text-sm font-medium text-gray-700 hover:text-indigo-600">Fonctionnalités</a>
+                class="block text-sm font-medium text-gray-700 hover:text-violet-600">Fonctionnalités</a>
             <a href="#comment" @click="open=false"
-                class="block text-sm font-medium text-gray-700 hover:text-indigo-600">Comment ça marche</a>
+                class="block text-sm font-medium text-gray-700 hover:text-violet-600">Comment ça marche</a>
             <a href="#faq" @click="open=false"
-                class="block text-sm font-medium text-gray-700 hover:text-indigo-600">FAQ</a>
+                class="block text-sm font-medium text-gray-700 hover:text-violet-600">FAQ</a>
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
                 @auth
                     <a href="{{ url('/dashboard') }}"
-                        class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-lg">Tableau
+                        class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-violet-600 rounded-lg">Tableau
                         de bord</a>
                 @else
                     <a href="{{ route('login') }}"
                         class="block text-center px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">Se
                         connecter</a>
                     <a href="{{ route('register') }}"
-                        class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">Commencer
+                        class="block text-center px-4 py-2.5 text-sm font-semibold text-white bg-violet-600 rounded-lg hover:bg-violet-700">Commencer
                         gratuitement</a>
                 @endauth
             </div>
@@ -95,10 +95,10 @@
     </nav>
 
     {{-- ===== HERO ===== --}}
-    <section class="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-20 lg:py-28">
+    <section class="relative overflow-hidden bg-gradient-to-br from-violet-50 via-white to-purple-50 py-20 lg:py-28">
         {{-- Decorative blobs --}}
         <div
-            class="absolute -top-32 -right-32 w-96 h-96 bg-indigo-300 opacity-20 rounded-full blur-3xl pointer-events-none">
+            class="absolute -top-32 -right-32 w-96 h-96 bg-violet-300 opacity-20 rounded-full blur-3xl pointer-events-none">
         </div>
         <div
             class="absolute -bottom-20 -left-20 w-80 h-80 bg-purple-300 opacity-15 rounded-full blur-3xl pointer-events-none">
@@ -108,7 +108,7 @@
             {{-- Left --}}
             <div>
                 <div
-                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full mb-6">
+                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-violet-100 text-violet-700 text-xs font-semibold rounded-full mb-6">
                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -118,7 +118,7 @@
 
                 <h1 class="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
                     Suivez chaque alternance,<br>
-                    <span class="text-indigo-600">sans effort.</span>
+                    <span class="text-violet-600">sans effort.</span>
                 </h1>
 
                 <p class="text-xl text-gray-500 mb-8 max-w-lg leading-relaxed">
@@ -129,7 +129,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-10">
                     @auth
                         <a href="{{ url('/dashboard') }}"
-                            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-violet-600 rounded-xl hover:bg-violet-700 transition shadow-lg shadow-violet-200">
                             Accéder au tableau de bord
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -138,7 +138,7 @@
                         </a>
                     @else
                         <a href="{{ route('register') }}"
-                            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-violet-600 rounded-xl hover:bg-violet-700 transition shadow-lg shadow-violet-200">
                             Commencer gratuitement
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -156,7 +156,7 @@
                 <div class="flex items-center gap-3">
                     <div class="flex -space-x-2">
                         <div
-                            class="w-8 h-8 rounded-full bg-indigo-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                            class="w-8 h-8 rounded-full bg-violet-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
                             M</div>
                         <div
                             class="w-8 h-8 rounded-full bg-purple-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
@@ -251,19 +251,19 @@
     </section>
 
     {{-- ===== STATS ===== --}}
-    <section class="bg-indigo-600 py-14">
+    <section class="bg-violet-600 py-14">
         <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
             <div>
                 <div class="text-4xl font-extrabold mb-1">500+</div>
-                <div class="text-indigo-200 text-sm font-medium">Alternances suivies</div>
+                <div class="text-violet-200 text-sm font-medium">Alternances suivies</div>
             </div>
             <div>
                 <div class="text-4xl font-extrabold mb-1">200+</div>
-                <div class="text-indigo-200 text-sm font-medium">Entreprises partenaires</div>
+                <div class="text-violet-200 text-sm font-medium">Entreprises partenaires</div>
             </div>
             <div>
                 <div class="text-4xl font-extrabold mb-1">30+</div>
-                <div class="text-indigo-200 text-sm font-medium">Établissements utilisateurs</div>
+                <div class="text-violet-200 text-sm font-medium">Établissements utilisateurs</div>
             </div>
         </div>
     </section>
@@ -280,8 +280,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{-- Feature 1 --}}
                 <div class="rounded-2xl bg-gray-50 border border-gray-100 p-8 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor"
+                    <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -294,8 +294,8 @@
 
                 {{-- Feature 2 --}}
                 <div class="rounded-2xl bg-gray-50 border border-gray-100 p-8 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor"
+                    <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
@@ -308,8 +308,8 @@
 
                 {{-- Feature 3 --}}
                 <div class="rounded-2xl bg-gray-50 border border-gray-100 p-8 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor"
+                    <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -322,8 +322,8 @@
 
                 {{-- Feature 4 --}}
                 <div class="rounded-2xl bg-gray-50 border border-gray-100 p-8 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor"
+                    <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -336,8 +336,8 @@
 
                 {{-- Feature 5 --}}
                 <div class="rounded-2xl bg-gray-50 border border-gray-100 p-8 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor"
+                    <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -350,7 +350,7 @@
 
                 {{-- Feature 6 --}}
                 <div
-                    class="rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 p-8 hover:shadow-md transition">
+                    class="rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 p-8 hover:shadow-md transition">
                     <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -358,7 +358,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2">Gratuit pour toujours</h3>
-                    <p class="text-indigo-100 text-sm leading-relaxed">Aucun abonnement, aucune carte de crédit. 100%
+                    <p class="text-violet-100 text-sm leading-relaxed">Aucun abonnement, aucune carte de crédit. 100%
                         gratuit pour tous les établissements d'enseignement.</p>
                 </div>
             </div>
@@ -378,7 +378,7 @@
                 {{-- Step 1 --}}
                 <div class="text-center">
                     <div
-                        class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-indigo-200">
+                        class="w-14 h-14 bg-violet-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-violet-200">
                         1</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Créez votre compte</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Inscription en 30 secondes avec votre email
@@ -388,7 +388,7 @@
                 {{-- Step 2 --}}
                 <div class="text-center" style="grid-column: 2">
                     <div
-                        class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-indigo-200">
+                        class="w-14 h-14 bg-violet-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-violet-200">
                         2</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Importez vos données</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Glissez votre fichier Excel ou saisissez
@@ -398,7 +398,7 @@
                 {{-- Step 3 --}}
                 <div class="text-center">
                     <div
-                        class="w-14 h-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-indigo-200">
+                        class="w-14 h-14 bg-violet-600 text-white rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-6 shadow-lg shadow-violet-200">
                         3</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Suivez et gérez</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Filtrez, consultez, modifiez à tout moment. Votre
@@ -431,7 +431,7 @@
                         vue claire sur tous nos alternants."</p>
                     <div class="flex items-center gap-3">
                         <div
-                            class="w-10 h-10 bg-indigo-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            class="w-10 h-10 bg-violet-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
                             MD</div>
                         <div>
                             <div class="text-sm font-semibold text-gray-900">Marie Dupont</div>
@@ -555,20 +555,20 @@
     </section>
 
     {{-- ===== CTA FINALE ===== --}}
-    <section class="bg-gradient-to-r from-indigo-600 to-purple-700 py-20">
+    <section class="bg-gradient-to-r from-violet-600 to-purple-700 py-20">
         <div class="max-w-3xl mx-auto px-4 text-center">
             <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Prêt à simplifier votre suivi d'alternance
                 ?</h2>
-            <p class="text-indigo-100 text-lg mb-10">Rejoignez les établissements qui font confiance à AlterTrack.
+            <p class="text-violet-100 text-lg mb-10">Rejoignez les établissements qui font confiance à AlterTrack.
                 Gratuit, sans engagement.</p>
             @auth
                 <a href="{{ url('/dashboard') }}"
-                    class="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-indigo-700 bg-white rounded-xl hover:bg-indigo-50 transition shadow-xl">
+                    class="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-violet-700 bg-white rounded-xl hover:bg-violet-50 transition shadow-xl">
                     Accéder au tableau de bord
                 </a>
             @else
                 <a href="{{ route('register') }}"
-                    class="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-indigo-700 bg-white rounded-xl hover:bg-indigo-50 transition shadow-xl">
+                    class="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-violet-700 bg-white rounded-xl hover:bg-violet-50 transition shadow-xl">
                     Commencer gratuitement
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -584,7 +584,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
             <div class="col-span-2 lg:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <div class="w-7 h-7 bg-violet-600 rounded-lg flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />

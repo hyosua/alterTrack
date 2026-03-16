@@ -1,18 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-bold text-2xl text-indigo-900 leading-tight">
+        <h2 class="font-semibold text-base text-gray-900 leading-tight">
             Tableau de bord
         </h2>
     </x-slot>
 
-    <div class="py-6 bg-gray-100 min-h-screen">
+    <div class="py-6 bg-gray-50 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
             {{-- Stats cards --}}
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex items-center gap-4">
-                    <div class="w-11 h-11 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-11 h-11 bg-violet-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                         </svg>
                     </div>
@@ -79,7 +79,7 @@
                         {{-- Import Section --}}
                         <div class="border border-gray-100 rounded-xl p-6 bg-gray-50">
                             <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                                 </svg>
                                 Importer par Excel
@@ -90,7 +90,7 @@
                                     <div class="flex items-center justify-between mb-3">
                                         <h4 class="text-sm font-semibold text-gray-700">Entreprises</h4>
                                         <div class="flex items-center gap-3">
-                                            <a href="{{ route('templates.entreprises') }}" class="inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-800 font-medium">
+                                            <a href="{{ route('templates.entreprises') }}" class="inline-flex items-center gap-1 text-xs text-violet-600 hover:text-violet-800 font-medium">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                                                 Modèle .xlsx
                                             </a>
@@ -103,11 +103,11 @@
 
                                     <div x-show="show" x-transition class="mb-3 rounded-lg border border-gray-100 overflow-hidden">
                                         <table class="w-full text-xs">
-                                            <thead class="bg-indigo-50">
+                                            <thead class="bg-violet-50">
                                                 <tr>
-                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Colonne</th>
-                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Requis</th>
-                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Exemple</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-violet-700">Colonne</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-violet-700">Requis</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-violet-700">Exemple</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="divide-y divide-gray-50">
@@ -127,10 +127,10 @@
                                         <div class="flex items-end gap-3">
                                             <div class="flex-1">
                                                 <input type="file" name="file" @change="fileSelected = $event.target.value.length > 0"
-                                                       class="block w-full text-sm text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" required/>
+                                                       class="block w-full text-sm text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" required/>
                                             </div>
                                             <button type="submit" :disabled="!fileSelected" :class="{ 'opacity-50 cursor-not-allowed': !fileSelected }"
-                                                    class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">
+                                                    class="px-4 py-2 text-sm font-semibold text-white bg-violet-600 rounded-lg hover:bg-violet-700 transition">
                                                 Importer
                                             </button>
                                         </div>
@@ -197,7 +197,7 @@
                         {{-- Manual Actions --}}
                         <div class="border border-gray-100 rounded-xl p-6 bg-gray-50">
                             <h3 class="text-base font-bold text-gray-800 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                                 </svg>
                                 Ajouter manuellement
@@ -215,7 +215,7 @@
                                     </svg>
                                     Ajouter une entreprise
                                 </a>
-                                <a href="{{ route('alternances.create') }}" class="flex items-center gap-3 w-full px-4 py-3 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition">
+                                <a href="{{ route('alternances.create') }}" class="flex items-center gap-3 w-full px-4 py-3 text-sm font-semibold text-white bg-violet-600 rounded-xl hover:bg-violet-700 transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                                     </svg>
@@ -230,7 +230,7 @@
                         <div class="flex flex-wrap gap-4 items-end">
                             <div>
                                 <label for="type" class="block text-xs font-semibold text-gray-600 mb-1">Type</label>
-                                <select id="type" name="type" class="block pl-3 pr-10 py-2 text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-lg">
+                                <select id="type" name="type" class="block pl-3 pr-10 py-2 text-sm border-gray-300 focus:outline-none focus:ring-violet-500 focus:border-violet-500 rounded-lg">
                                     <option value="">Tous</option>
                                     <option value="stage" {{ request('type') == 'stage' ? 'selected' : '' }}>Stage</option>
                                     <option value="alternance" {{ request('type') == 'alternance' ? 'selected' : '' }}>Alternance</option>
@@ -240,14 +240,14 @@
                                 <label class="block text-xs font-semibold text-gray-600 mb-1">Technos</label>
                                 <div x-data="searchableSelect('{{ route('get.unique.technos') }}', '{{ request('technos') }}', '{{ request('technos') }}')" @click.outside="handleBlur()" class="relative">
                                     <input type="text" x-model="searchTerm" @focus="open = true" @input="filterOptions()" @keydown.escape="open = false"
-                                           class="block w-44 pl-3 pr-3 py-2 text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-lg"
+                                           class="block w-44 pl-3 pr-3 py-2 text-sm border-gray-300 focus:outline-none focus:ring-violet-500 focus:border-violet-500 rounded-lg"
                                            placeholder="Rechercher...">
                                     <input type="hidden" name="technos" x-ref="hiddenInput" :value="selectedValue">
                                     <div x-show="open && filteredOptions.length > 0" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-xl ring-1 ring-black ring-opacity-5 overflow-auto">
                                         <ul class="py-1 text-sm focus:outline-none">
                                             <template x-for="option in filteredOptions" :key="option.value">
                                                 <li @click="selectOption(option)" x-text="option.text"
-                                                    class="cursor-default select-none py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white"></li>
+                                                    class="cursor-default select-none py-2 pl-3 pr-9 hover:bg-violet-600 hover:text-white"></li>
                                             </template>
                                         </ul>
                                     </div>
@@ -257,21 +257,21 @@
                                 <label class="block text-xs font-semibold text-gray-600 mb-1">Entreprise</label>
                                 <div x-data="searchableSelect('{{ route('search.entreprises') }}', '{{ request('entreprise') }}', '{{ request('entreprise') }}')" @click.outside="handleBlur()" class="relative">
                                     <input type="text" x-model="searchTerm" @focus="open = true" @input="filterOptions()" @keydown.escape="open = false"
-                                           class="block w-44 pl-3 pr-3 py-2 text-sm border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-lg"
+                                           class="block w-44 pl-3 pr-3 py-2 text-sm border-gray-300 focus:outline-none focus:ring-violet-500 focus:border-violet-500 rounded-lg"
                                            placeholder="Rechercher...">
                                     <input type="hidden" name="entreprise" x-ref="hiddenInput" :value="selectedValue">
                                     <div x-show="open && filteredOptions.length > 0" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-xl ring-1 ring-black ring-opacity-5 overflow-auto">
                                         <ul class="py-1 text-sm focus:outline-none">
                                             <template x-for="option in filteredOptions" :key="option.value">
                                                 <li @click="selectOption(option)" x-text="option.text"
-                                                    class="cursor-default select-none py-2 pl-3 pr-9 hover:bg-indigo-600 hover:text-white"></li>
+                                                    class="cursor-default select-none py-2 pl-3 pr-9 hover:bg-violet-600 hover:text-white"></li>
                                             </template>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex gap-2">
-                                <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">
+                                <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-violet-600 rounded-lg hover:bg-violet-700 transition">
                                     Filtrer
                                 </button>
                                 @if(request('type') || request('technos') || request('entreprise'))
@@ -331,7 +331,7 @@
                                             {{ $alternance->prof_referent }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                            <a href="{{ route('alternances.edit', $alternance) }}" class="text-indigo-600 hover:text-indigo-900 font-medium mr-3">Modifier</a>
+                                            <a href="{{ route('alternances.edit', $alternance) }}" class="text-violet-600 hover:text-gray-900 font-medium mr-3">Modifier</a>
                                             <form action="{{ route('alternances.destroy', $alternance) }}" method="POST" onsubmit="return confirm('Supprimer cette alternance ?');" class="inline-block">
                                                 @csrf
                                                 @method('DELETE')
