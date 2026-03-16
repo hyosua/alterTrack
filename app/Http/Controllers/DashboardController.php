@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternance;
+use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use App\Imports\AlternanceImport;
 use App\Imports\EntrepriseImport;
