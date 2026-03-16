@@ -85,8 +85,43 @@
                                 Importer par Excel
                             </h3>
                             <div class="space-y-4">
-                                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Entreprises</h4>
+                                {{-- Import Entreprises --}}
+                                <div class="bg-white rounded-lg border border-gray-200 p-4" x-data="{ show: false }">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="text-sm font-semibold text-gray-700">Entreprises</h4>
+                                        <div class="flex items-center gap-3">
+                                            <a href="{{ route('templates.entreprises') }}" class="inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-800 font-medium">
+                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                                Modèle .xlsx
+                                            </a>
+                                            <button @click="show = !show" class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600">
+                                                <svg class="w-3.5 h-3.5 transition-transform" :class="show ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                                Format
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="show" x-transition class="mb-3 rounded-lg border border-gray-100 overflow-hidden">
+                                        <table class="w-full text-xs">
+                                            <thead class="bg-indigo-50">
+                                                <tr>
+                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Colonne</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Requis</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-indigo-700">Exemple</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-50">
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">nom_entreprise</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">Capgemini</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">domaine</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">Informatique</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">code_postal</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">75008</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">contact</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">Jean Martin</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">email</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">j@capgemini.com</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">tel</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">0102030405</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">siteweb</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">https://capgemini.com</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                     <form action="{{ route('import.entreprises') }}" method="POST" enctype="multipart/form-data" x-data="{ fileSelected: false }">
                                         @csrf
                                         <div class="flex items-end gap-3">
@@ -102,8 +137,46 @@
                                     </form>
                                 </div>
 
-                                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-3">Alternances</h4>
+                                {{-- Import Alternances --}}
+                                <div class="bg-white rounded-lg border border-gray-200 p-4" x-data="{ show: false }">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="text-sm font-semibold text-gray-700">Alternances</h4>
+                                        <div class="flex items-center gap-3">
+                                            <a href="{{ route('templates.alternances') }}" class="inline-flex items-center gap-1 text-xs text-green-600 hover:text-green-800 font-medium">
+                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                                Modèle .xlsx
+                                            </a>
+                                            <button @click="show = !show" class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600">
+                                                <svg class="w-3.5 h-3.5 transition-transform" :class="show ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                                Format
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="show" x-transition class="mb-3 rounded-lg border border-gray-100 overflow-hidden">
+                                        <table class="w-full text-xs">
+                                            <thead class="bg-green-50">
+                                                <tr>
+                                                    <th class="px-3 py-2 text-left font-semibold text-green-700">Colonne</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-green-700">Requis</th>
+                                                    <th class="px-3 py-2 text-left font-semibold text-green-700">Exemple</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-50">
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">nom_entreprise</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">Capgemini</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">nom_etudiant</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">Martin</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">prenom_etudiant</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">Lucas</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">type</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">stage <span class="text-gray-400">ou</span> alternance</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">mois_annee</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">09/2024</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">duree</td><td class="px-3 py-1.5 text-green-600 font-semibold">✓</td><td class="px-3 py-1.5 text-gray-500">12 <span class="text-gray-400">(mois)</span></td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">descriptif</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">Développement web</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">prof_referent</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">M. Dupont</td></tr>
+                                                <tr class="bg-white"><td class="px-3 py-1.5 font-mono text-gray-700">qualite_travail</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">Excellent</td></tr>
+                                                <tr class="bg-gray-50"><td class="px-3 py-1.5 font-mono text-gray-700">technos</td><td class="px-3 py-1.5 text-gray-400">optionnel</td><td class="px-3 py-1.5 text-gray-500">PHP,Laravel,Vue.js</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                     <form action="{{ route('import.alternances') }}" method="POST" enctype="multipart/form-data" x-data="{ fileSelected: false }">
                                         @csrf
                                         <div class="flex items-end gap-3">

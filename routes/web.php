@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AlternanceController;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +31,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route for unique technos
     Route::get('/get-unique-technos', [DashboardController::class, 'getUniqueTechnos'])->name('get.unique.technos');
+
+    // Template downloads
+    Route::get('/templates/entreprises', [TemplateController::class, 'downloadEntreprises'])->name('templates.entreprises');
+    Route::get('/templates/alternances', [TemplateController::class, 'downloadAlternances'])->name('templates.alternances');
 });
 
 
