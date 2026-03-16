@@ -1,0 +1,37 @@
+Rôle : Expert Laravel. Objectif : Créer une application Laravel 11 en français pour la gestion des entreprises et des stagiaires.
+
+Configuration :
+
+Langue : Interface, messages d'erreur et données en français.
+
+Stack : Laravel 11, Breeze (Blade), Tailwind CSS, MySQL.
+
+Docker : Fichier docker-compose.yml avec PHP 8.3 et MySQL (pas de Redis).
+
+Accès : Toute l'application est protégée par le middleware auth. L'utilisateur doit être connecté pour voir, filtrer ou modifier quoi que ce soit.
+
+Base de données (Relation 1:N) :
+
+Table entreprises (nom, domaine, code_postal, contact, email, tel, siteweb).
+
+Table alternances (company_id, mois_annee, duree, descriptif, prof_referent, qualite_travail, technos, type [stage/alternance]).
+
+Logique d'ajout de données :
+
+Import Manuel : Formulaire combiné permettant de créer une entreprise et de lui lier immédiatement son premier stagiaire/alternant.
+
+Import Excel (Maatwebsite/Excel) : > - Créer EntrepriseImport avec WithHeadingRow.
+
+Si l'entreprise (nom) existe déjà, lier le stagiaire à l'entreprise existante. Sinon, créer les deux.
+
+Colonnes Excel attendues : Nom, Domaine, Code Postal, Contact, Email, Tel, Web, Type, Periode, Duree, Descriptif, Prof, Qualite, Technos.
+
+Interface & Filtres :
+
+Page d'accueil : Tableau Tailwind listant les entreprises et leurs stagiaires.
+
+Filtres fonctionnels : Recherche par "Type" (Stage/Alternance) et par "Technos" (via un champ texte LIKE).
+
+Affichage clair du champ "Qualité du travail" (donnée sensible).
+
+Livrables : Migrations, Modèles (avec relations), Contrôleurs, Classe d'import, Vues Blade (index, forms), Routes (web.php) et docker-compose.yml.

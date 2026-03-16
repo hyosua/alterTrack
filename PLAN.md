@@ -4,7 +4,7 @@
 
 - [x] **Phase 1** — Landing page complète ✓
 - [x] **Phase 2** — Sécurité OWASP 2025 ✓
-- [ ] **Phase 3** — UX Dashboard & composants
+- [x] **Phase 3** — UX Dashboard & composants ✓
 
 ---
 

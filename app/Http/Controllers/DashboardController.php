@@ -31,7 +31,14 @@ class DashboardController extends Controller
 
         $alternances = $query->get();
 
-        return view('dashboard', compact('alternances'));
+        $stats = [
+            'total'       => \App\Models\Alternance::count(),
+            'stages'      => \App\Models\Alternance::whereRaw('LOWER(type) = ?', ['stage'])->count(),
+            'alternances' => \App\Models\Alternance::whereRaw('LOWER(type) = ?', ['alternance'])->count(),
+            'entreprises' => Entreprise::count(),
+        ];
+
+        return view('dashboard', compact('alternances', 'stats'));
     }
 
     public function importEntreprises(Request $request)

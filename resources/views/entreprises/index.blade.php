@@ -13,12 +13,7 @@
     <div class="py-6 bg-gray-100 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            @if (session('success'))
-                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
-                    <p class="font-bold">Succès</p>
-                    <p>{{ session('success') }}</p>
-                </div>
-            @endif
+            <x-breadcrumbs :links="['Entreprises' => '#']" />
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-xl border border-gray-200">
                 <div class="p-8">
@@ -61,7 +56,14 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Aucune entreprise trouvée.</td>
+                                        <td colspan="4">
+                                            <x-empty-state
+                                                title="Aucune entreprise enregistrée"
+                                                description="Ajoutez votre première entreprise manuellement ou importez un fichier Excel depuis le tableau de bord."
+                                                action-label="Ajouter une entreprise"
+                                                action-url="{{ route('entreprises.create') }}"
+                                            />
+                                        </td>
                                     </tr>
                                 @endforelse
                             </tbody>
